@@ -1,0 +1,25 @@
+#coding=utf-8
+import random
+list = []
+for x in range(65, 91):
+    b = str(chr(x))
+    list.append(b)
+
+for x in range(97, 123):
+    d = str(chr(x))
+    list.append(d)
+
+for x in range(10):
+    list.append(str(x))
+
+
+def gen_code():
+    s = ''
+    for o in range(16):
+        f = random.choice(list)
+        s = s+f
+    print s
+
+
+for x in range(200):
+    gen_code()
