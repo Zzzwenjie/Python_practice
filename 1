@@ -1,0 +1,8 @@
+# -*- coding:utf-8 -*-
+from PIL import Image, ImageDraw, ImageFont
+font1 = ImageFont.truetype('simsun.ttc', 100)
+img = Image.open("C:\Users\Zzz\Desktop\zz.jpg")
+draw = ImageDraw.Draw(img)
+draw.text((30, 6), u'嘤嘤嘤', fill='green' , font=font1)
+img.show();
+ImageFont.true
