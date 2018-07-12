@@ -1,0 +1,21 @@
+# -*- coding:utf-8 -*-
+import re
+
+
+chart_count = 0
+linelist = []
+list = {}
+
+with open("C:\Users\Zzz\Desktop\ext.txt", 'r+') as f:
+    for line in f:
+        print line
+        chart_count = chart_count+1
+        print chart_count
+        match = re.findall(r'[^a-zA-Z]+', line)
+        print match
+        for i in match:
+            print i
+            line = line.replace(i, ' ')
+            print line
+        linelist = line.split()
+        print linelist;
