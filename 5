@@ -1,0 +1,33 @@
+# -*- coding:utf-8 -*-
+import os
+from PIL import Image
+
+path = "F:/picture"
+List = []
+os.chdir(path)
+
+
+def get_file(local_path):
+    list = os.listdir(local_path)
+    for x in list:
+        if '.jpg' in x:
+            List.append(x)
+        else:
+            print ("This is not jpg" + x)
+    return List
+
+
+def modify_pciture():
+    for filename in get_file(path):
+        img = Image.open(filename)
+        if max(img.size) > 1136:
+            value = img.size/1136
+            modify_size = img.size/value
+            img1 = img.resize(1136, modify_size)
+            img1.save('new_'+filename)
+        else:
+            print("This pic is available :"+filename)
+            img.save('new_'+filename)
+
+
+modify_pciture();
