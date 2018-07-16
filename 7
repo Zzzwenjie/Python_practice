@@ -1,0 +1,32 @@
+# -*- coding:utf-8  -*-
+import os
+import re
+import string
+
+path = ("C:\Users\Administrator\PycharmProjects\untitled")
+
+os.chdir(path)
+
+file = open('ez_setup.py')
+
+code_count = 0
+blank_count = 0
+note_count = 0
+pattern = '.*#'
+
+line = file.readline()
+file.close()
+for x in line:
+    if '#' in line:
+        if re.findall(pattern, x) == '':
+            note_count = note_count+1
+        else:
+            code_count = code_count+1
+    elif x.isspace():
+        blank_count = blank_count+1
+    else:
+        code_count = code_count+1
+
+print("code_count= %d" % code_count)
+print("note_count= %d" % note_count)
+print("blank_count= %d" % blank_count)
